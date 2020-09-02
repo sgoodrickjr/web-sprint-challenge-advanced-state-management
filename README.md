@@ -24,10 +24,24 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What problem does the context API help solve?
+
+  Context API makes it so you don't have to write as much boiler plate code as Redux if you use useContext and useReducer hooks.
+
 2. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+  The store is like a grocery store of information. It is immutabable meaning read only, and changes to it are actually done by dispatching actions that get sent to a reducer function which takes the previous state plus the new action or change to create a new updated copy of the old state. Because the store doesn't actually change, it can be considered the single source of truth.
+
 3. What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+  When the application state changes, we clone the state object, modify the clone, and replace the original state with the new copy. We never mutate the original object, and we never write to our store object. This is the global state for the whole application we are talking about here. The Component state is just state that exists within a component. When modifying the entire app, use application state. If only modifying a small piece, modify component state.
+
 4. Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Redux Thunk is a middleware that lets you call action creators that return a function instead of an action object. That function receives the store's dispatch method, which is then used to dispatch regular synchronous actions inside the body of the function once the asynchronous operations have completed. It makes it so you can use HOC for actions.
+
 5. What is your favorite state management system you've learned and this sprint? Please explain why!
+
+My favorite state management system is probably Context.API. It simplifies Redux in a way that I can understand it better and I like using hooks more.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
